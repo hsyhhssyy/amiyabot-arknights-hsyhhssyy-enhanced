@@ -2,4 +2,5 @@
 
     - 在查询关卡掉落时,显示材料掉率数字
     
+> 项目地址 [https://github.com/hsyhhssyy/amiyabot-arknights-hsyhhssyy-enhanced/]
 
