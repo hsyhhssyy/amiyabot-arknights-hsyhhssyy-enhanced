@@ -8,4 +8,5 @@
 
     - 如果想要使用本地Ocr，请在命令行执行 `pip install paddleocr` 和 `pip install paddlepaddle` 来安装
     
+> [项目地址:Github](https://github.com/hsyhhssyy/amiyabot-arknights-hsyhhssyy-enhanced/)
 
