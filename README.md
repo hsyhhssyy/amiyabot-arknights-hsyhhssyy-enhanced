@@ -6,6 +6,6 @@
 
 > 关于PaddleOcr
 
-    - 如果想要使用本地Ocr，请在命令行执行 `pip install paddleocr` 来安装
+    - 如果想要使用本地Ocr，请在命令行执行 `pip install paddleocr` 和 `pip install paddlepaddle` 来安装
     
 

@@ -7,6 +7,7 @@ from io import BytesIO
 from PIL import Image
 from jieba import posseg
 from typing import List
+from core.util import run_in_thread_pool
 from itertools import combinations
 from amiyabot import PluginInstance
 from amiyabot.network.download import download_async
@@ -172,10 +173,10 @@ async def auto_discern(data: Message):
 
 async def get_ocr_result(image):
     if enabled:
-        result = ocr.ocr(image)
-        log.info(f'{result}')
+        result = await run_in_thread_pool(ocr.ocr,image)
+        # log.info(f'{result}')
         str_ret = [text[1][0] for text in result[0]]
-        log.info(f'{str_ret}')
+        # log.info(f'{str_ret}')
         return ''.join(str_ret)
     return ''
 
