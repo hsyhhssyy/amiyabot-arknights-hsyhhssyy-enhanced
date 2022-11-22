@@ -7,8 +7,17 @@
 
     - 如果想要使用本地Ocr，请在命令行执行 `pip install paddleocr` 和 `pip install paddlepaddle` 来安装
     - 可执行文件部署方式，暂时无法支持该功能。
-    
+
+> 其他说明
+
+    - 该功能替换了原版的关卡掉落查询功能，您可以选择卸载原版插件（也可以不卸载，并不冲突，本插件优先级更高）
+    - 该功能依赖原版的公招查询插件，因此不能卸载原版的公招查询插件。
+
 > [项目地址:Github](https://github.com/hsyhhssyy/amiyabot-arknights-hsyhhssyy-enhanced/)
 
 > [Logo作者:Sesern老师](https://space.bilibili.com/305550122)
 
+|  版本   | 变更  |
+|  ----  | ----  |
+| 1.0  | 初版登录商店 |
+| 1.1  | 适配新版插件商店 |
