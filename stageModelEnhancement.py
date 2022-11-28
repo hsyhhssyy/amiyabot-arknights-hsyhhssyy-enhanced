@@ -82,13 +82,17 @@ async def download_penguin_stats_matrix():
     
     global stage_drop
 
-    front_page_address = 'https://penguin-stats.io/PenguinStats/api/v2/result/matrix'
+    #front_page_address = 'https://penguin-stats.io/PenguinStats/api/v2/result/matrix'
+    front_page_address = 'https://www.google.com'
     resource_file = f'{curr_dir}/../../resource/penguin-stats-CN-all.json'
 
     res = await download_async(front_page_address) 
     if res:
         with open(resource_file, mode='wb+') as src:
             src.write(res)
+        log.info('成功从企鹅物流获取了数据...')
+    else:
+        log.info('无法从企鹅物流获取数据，使用备份数据中，稍后自动重试。')
 
     with open(resource_file,
                 mode='r',
@@ -128,7 +132,11 @@ async def stage_model_enhancement_action(data: Message):
 
     if stage_id:
         stage_data = ArknightsGameData.stages[stage_id]
-        penguin_data = stage_drop[stage_id]
+
+        if stage_id in stage_drop.keys():
+            penguin_data = stage_drop[stage_id]
+        else:
+            penguin_data = {}
 
         res = {
             **stage_data,

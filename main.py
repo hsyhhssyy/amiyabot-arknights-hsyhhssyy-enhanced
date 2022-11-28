@@ -16,7 +16,7 @@ class EnhancedOperatorPluginInstance(PluginInstance):
 
 bot = EnhancedOperatorPluginInstance(
     name='明日方舟增强查询',
-    version='1.1',
+    version='1.2',
     plugin_id='amiyabot-arknights-hsyhhssyy-enhanced',
     plugin_type='',
     description='增强兔兔的查询功能，让他可以执行更多操作',
