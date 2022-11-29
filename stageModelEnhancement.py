@@ -18,7 +18,7 @@ from amiyabot import PluginInstance
 from amiyabot.util import temp_sys_path, extract_zip, argv
 from amiyabot.network.download import download_async
 from core.util import read_yaml, any_match, remove_punctuation
-from core import log, Message, Chain
+from core import log, Message, Chain, tasks_control
 from core.database.user import User, UserInfo
 from core.database.bot import OperatorConfig
 from core.resource.arknightsGameData import ArknightsGameData, ArknightsGameDataResource, Operator
@@ -82,8 +82,8 @@ async def download_penguin_stats_matrix():
     
     global stage_drop
 
-    #front_page_address = 'https://penguin-stats.io/PenguinStats/api/v2/result/matrix'
-    front_page_address = 'https://www.google.com'
+    front_page_address = 'https://penguin-stats.io/PenguinStats/api/v2/result/matrix'
+    # front_page_address = 'https://www.google.com'
     resource_file = f'{curr_dir}/../../resource/penguin-stats-CN-all.json'
 
     res = await download_async(front_page_address) 
@@ -101,6 +101,10 @@ async def download_penguin_stats_matrix():
 
     log.info('initialize init_penguin_stats_drop_rate...')
     stage_drop = init_stage_drop(json_data)
+
+@tasks_control.timed_task(each=1200)
+async def _():
+    await download_penguin_stats_matrix()
 
 async def stage_model_enhancement_action(data: Message):
 
