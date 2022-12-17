@@ -17,7 +17,6 @@ from core.util import all_match, read_yaml
 from core.resource.arknightsGameData import ArknightsGameData
 
 try:
-    from paddleocr import paddleocr
     from paddleocr import PaddleOCR
 
     # paddleocr.logging.disable()

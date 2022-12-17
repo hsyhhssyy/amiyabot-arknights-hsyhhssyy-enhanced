@@ -102,7 +102,7 @@ async def download_penguin_stats_matrix():
     log.info('initialize init_penguin_stats_drop_rate...')
     stage_drop = init_stage_drop(json_data)
 
-@tasks_control.timed_task(each=1200)
+@tasks_control.timed_task(each=12000)
 async def _():
     await download_penguin_stats_matrix()
 
